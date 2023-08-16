@@ -12,7 +12,7 @@ jobs:
       - name: upload builded app
         uses: actions/upload-artifact@v3
         with:
-          name: compiled jar
+          name: code
           path: .
       - name: upload compiled jar
         uses: actions/upload-artifact@v3
@@ -27,7 +27,7 @@ jobs:
       - name: Download compiled app
         uses: actions/download-artifact@v3
         with:
-          name: compiled app
+          name: code
           path: .
       - name: Test
         run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
