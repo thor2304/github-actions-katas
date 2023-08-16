@@ -40,8 +40,8 @@ jobs:
       - name: download jar
         uses: actions/download-artifact@v3
         with:
-          name: compiled-jar
-          path: /app/build/libs/app-0.1-all.jar
+          name: code
+          path: .
       - name: build docker
         run: chmod +x ci/build-docker.sh && ci/build-docker.sh
       - name: push docker
