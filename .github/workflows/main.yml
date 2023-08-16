@@ -18,7 +18,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: compiled-jar
-          path: /app/build/libs/app-0.1-all.jar
+          path: app/build/libs/app-0.1-all.jar
   Test: 
     needs: [Build]
     runs-on: ubuntu-latest
