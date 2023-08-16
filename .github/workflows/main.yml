@@ -1,4 +1,4 @@
-name: hello-world
+name: Main CI Pipeline
 on: push
 jobs:
   Build:
