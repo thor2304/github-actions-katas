@@ -12,8 +12,13 @@ jobs:
       - name: upload builded app
         uses: actions/upload-artifact@v3
         with:
-          name: compiled app
+          name: compiled jar
           path: .
+      - name: upload compiled jar
+        uses: actions/upload-artifact@v3
+        with:
+          name: compiled-jar
+          path: /app/build/libs/app-0.1-all.jar
   Test: 
     needs: [Build]
     runs-on: ubuntu-latest
@@ -32,6 +37,11 @@ jobs:
     permissions:
       packages: write
     steps:
+      - name: download jar
+        uses: actions/download-artifact@v3
+        with:
+          name: compiled-jar
+          path: /app/build/libs/app-0.1-all.jar
       - name: build docker
         run: chmod +x ci/build-docker.sh && ci/build-docker.sh
       - name: push docker
