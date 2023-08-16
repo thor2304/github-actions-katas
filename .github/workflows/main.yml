@@ -15,6 +15,7 @@ jobs:
           name: compiled app
           path: .
   Test: 
+    needs: [Build]
     runs-on: ubuntu-latest
     steps:
       - name: Download compiled app
